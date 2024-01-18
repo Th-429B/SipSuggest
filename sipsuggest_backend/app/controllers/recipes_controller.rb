@@ -3,10 +3,9 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   def index
-    @recipes = Recipe.includes(:ingredients).all
+    @recipes = Recipe.includes(:ingredients, :steps).all
     
-
-    render json: @recipes, include: :ingredients
+    render json: @recipes, include: [:ingredients, :steps]
   end
 
   # GET /recipes/1

@@ -20,4 +20,12 @@ rum_punch = Recipe.create(name: "Rum Punch", description: "Tropical punch with r
 mojito.ingredients << [mint, lime, rum]
 rum_punch.ingredients << [rum, lime, soda]
 
-puts "Seed data has been created successfully."
+# Create steps for the recipe
+Step.create(recipe: mojito, step_number: 1, instruction: "Muddle mint and lime in a glass.")
+Step.create(recipe: mojito, step_number: 2, instruction: "Add ice and pour in rum and soda.")
+Step.create(recipe: mojito, step_number: 3, instruction: "Stir and garnish with mint leaves.")
+
+Step.create(recipe: rum_punch, step_number: 1, instruction: "Mix rum, lime juice, and soda in a punch bowl.")
+Step.create(recipe: rum_punch, step_number: 2, instruction: "Add ice and stir well.")
+Step.create(recipe: rum_punch, step_number: 3, instruction: "Garnish with lime slices.")
+
