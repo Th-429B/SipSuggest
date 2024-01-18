@@ -12,8 +12,8 @@ rum = Ingredient.find_or_create_by(name: "Rum")
 soda = Ingredient.find_or_create_by(name: "Soda")
 
 # Create Cocktail Recipes
-mojito = Recipe.create(name: "Mojito")
-rum_punch = Recipe.create(name: "Rum Punch")
+mojito = Recipe.create(name: "Mojito", description: "Refreshing cocktail with mint and lime")
+rum_punch = Recipe.create(name: "Rum Punch", description: "Tropical punch with rum and soda")
 
 
 # Associate Ingredients with Cocktail Recipes
