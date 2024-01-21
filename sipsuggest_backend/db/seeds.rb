@@ -10,15 +10,20 @@ mint = Ingredient.find_or_create_by(name: "Mint")
 lime = Ingredient.find_or_create_by(name: "Lime")
 rum = Ingredient.find_or_create_by(name: "Rum")
 soda = Ingredient.find_or_create_by(name: "Soda")
+whiskey = Ingredient.find_or_create_by(name: "Whiskey")
+sugar = Ingredient.find_or_create_by(name: "Sugar")
+orange = Ingredient.find_or_create_by(name: "Orange")
+angostura_bitters = Ingredient.find_or_create_by(name: "Angostura Bitters")
 
 # Create Cocktail Recipes
 mojito = Recipe.create(name: "Mojito", description: "Refreshing cocktail with mint and lime")
 rum_punch = Recipe.create(name: "Rum Punch", description: "Tropical punch with rum and soda")
-
+old_fashioned = Recipe.create(name: "Old Fashioned", description: "The classic bourbon cocktail")
 
 # Associate Ingredients with Cocktail Recipes
 mojito.ingredients << [mint, lime, rum]
 rum_punch.ingredients << [rum, lime, soda]
+old_fashioned.ingredients << [whiskey, sugar, angostura_bitters, orange]
 
 # Create steps for the recipe
 Step.create(recipe: mojito, step_number: 1, instruction: "Muddle mint and lime in a glass.")
@@ -29,3 +34,7 @@ Step.create(recipe: rum_punch, step_number: 1, instruction: "Mix rum, lime juice
 Step.create(recipe: rum_punch, step_number: 2, instruction: "Add ice and stir well.")
 Step.create(recipe: rum_punch, step_number: 3, instruction: "Garnish with lime slices.")
 
+Step.create(recipe: old_fashioned, step_number: 1, instruction: "Add 1 sugar cube and 2 dashes of angostura bitters and muddle them in a whiskey glass.")
+Step.create(recipe: old_fashioned, step_number: 2, instruction: "Add whiskey and mix.")
+Step.create(recipe: old_fashioned, step_number: 3, instruction: "Express the orange oils on the rim of the glass and add into the glass")
+Step.create(recipe: old_fashioned, step_number: 4, instruction: "Add ice and serve")
