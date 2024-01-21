@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import CocktailTable from './components/cocktailtable';
+import { useEffect, useState } from 'react';
+
+const API_URL = 'http://localhost:3000/recipes'
+
+// function getAPIData() {
+//   return axios.get(API_URL).then((resp) => resp.data)
+// }
 
 function App() {
+  // const [recipes, setRecipes] = useState([])
+  
+  // useEffect(()=> {
+  //   let mounted = true;
+  //   getAPIData().then((items) => {
+  //     if (mounted) {
+  //       setRecipes(items);
+  //       console.log(items)
+  //     }
+  //   });
+  //   return () => (mounted = false);
+
+  // }, []);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>SipSuggest</h1>    
+      <CocktailTable />
     </div>
   );
 }
