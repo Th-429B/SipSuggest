@@ -3,8 +3,24 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   def index
-    @recipes = Recipe.includes(:ingredients, :steps).all
-    
+
+    search_query = params[:search].capitalize
+
+    if search_query == '' || search_query == 'All'
+      @recipes = Recipe.includes(:ingredients, :steps).all
+    else 
+    ingredient = Ingredient.find_by(name: search_query)
+      if ingredient
+        @recipes = ingredient.recipes.includes(:ingredients, :steps)
+        # render json: recipes.as_json(include: :ingredients)
+      else
+        return render json: { error: "Ingredient not found" }, status: :not_found
+      end
+      # @recipes = Recipe.joins(:ingredients)
+      #                   .includes(:ingredients, :steps)
+      #                   .where(ingredients: {name: search_query})
+      #                   .distinct()
+    end
     render json: @recipes, include: [:ingredients, :steps]
   end
 
