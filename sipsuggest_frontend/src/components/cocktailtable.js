@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import Bar from './bar';
 import CocktailCard from './cocktailcard';
+import { Typography } from '@mui/material';
+import CocktailDetails from './cocktaildetails';
 
 // this should contain the searchbar and the cards
 function CocktailTable() {
   
   const [searchText, setSearchText] = useState('');
   const [cocktails, setCocktails] = useState(null);
+  const [cocktailDetails, setCocktailDetails] = useState(null);
 
   const fetchData = () => {
     //const apiEndpoint = `https://api.example.com/data?query=${searchText}`;
@@ -30,14 +33,14 @@ function CocktailTable() {
     <div onKeyDown={handleKeyDown}>
       <Bar onSearchTextChange={setSearchText}/>
       <h1>{searchText}</h1>
-      { cocktails && <CocktailCard cocktailData={cocktails}/>}
-      {/* <CocktailCard cocktailData={cocktails}/> */}
-      {cocktails && (
+      {cocktails && <CocktailCard cocktailData={cocktails} onClick={setCocktailDetails}/>}
+      {cocktailDetails && <CocktailDetails data={cocktailDetails}/>}
+      {/* {cocktails && (
         <div>
           <h3>Response Data:</h3>
           <pre>{JSON.stringify(cocktails, null, 2)}</pre>
         </div>
-      )}
+      )} */}
     </div>
   )
 }
