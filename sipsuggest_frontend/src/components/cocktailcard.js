@@ -9,15 +9,17 @@ import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import image from '../images/cocktail_placeholder_crop.jpg'
 
-function CocktailCard( {cocktailData} ) {
+function CocktailCard( {cocktailData, onClick} ) {
 
-  const onClick = (value) => {
-    console.log(value)
-  }
+  // console.log(cocktailData)
+
+  // const debug = (value) => {
+  //   console.log(value)
+  // }
 
   const listCards = cocktailData.map( cocktail => (
-    <Card key={cocktail.id} sx={{ width: 300, height: 300, margin: 2 }} >
-      <CardActionArea onClick={() => onClick(cocktail.name)} component='div' sx={{height: '100%'}}>
+    <Card key={cocktail.id} sx={{ width: 300, height: 300, margin: 4 }} >
+      <CardActionArea onClick={() => onClick(cocktail)} component='div' sx={{height: '100%'}}>
         <CardMedia
             component="img"
             height="200"
@@ -40,9 +42,9 @@ function CocktailCard( {cocktailData} ) {
 
 
   return (
-    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+    <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginY:10 }}>
       {listCards}
-    </div>
+    </Box>
   )
 }
 

@@ -40,7 +40,6 @@ function CocktailTable() {
   return (
     <div onKeyDown={handleKeyDown}>
       <Bar onSearchTextChange={setSearchText}/>
-      <h1>{searchText}</h1>
       {cocktails && <CocktailCard cocktailData={cocktails} onClick={setCocktailDetails}/>}
       {cocktailDetails && <CocktailDetails data={cocktailDetails}/>}
       {/* {cocktails && (

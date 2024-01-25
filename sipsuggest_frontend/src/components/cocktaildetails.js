@@ -62,8 +62,9 @@ function CocktailDetails(data) {
   
   // TODO: Not sure why data passed as a prop is getting wrapped 2 times?
   return (
-    <Box sx={{margin: 6}}>
+    <Box sx={{ maxWidth:'1300px', marginX:40, marginY:20}}>
       <Typography variant="h3">{data.data.name}</Typography>    
+      <h1>Image here</h1>
       <Button onClick={() => onClick(data.data.ingredients)}>TEST</Button>
       <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
