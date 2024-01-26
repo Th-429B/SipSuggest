@@ -15,19 +15,34 @@ function Header() {
             <LocalBarIcon sx={{color: 'black'}}/>
 
             <Link to="/" style={{ textDecoration: 'none' }}>
-            <Typography variant="h6" component="div" sx={{color:'black'}}>
-                SipSuggest
-            </Typography>
+              <Typography variant="h6" component="div" sx={{color:'black'}}>
+                  SipSuggest
+              </Typography>
             </Link>
         </Box>
-       
 
-        <Button component={Link} to="/new" sx={{color:'black'}}>
-          New
-        </Button>
-        <Button component={Link} to="/recipes" sx={{color:'black'}}>
-          Recipes
-        </Button>
+        <Box sx={{display:'flex', justifyContent:'space-between'}}>
+
+          <Link to="/" style={{ textDecoration: 'none', marginRight: 20 }}>
+            <Typography variant="h6" component="div" sx={{color:'black'}}>
+              Home
+            </Typography>
+          </Link>
+
+          <Link to="/new" style={{ textDecoration: 'none', marginRight: 20 }}>
+            <Typography variant="h6" component="div" sx={{color:'black'}}>
+              New
+            </Typography>
+          </Link>
+
+          <Link to="/recipes" style={{ textDecoration: 'none' }}>
+            <Typography variant="h6" component="div" sx={{color:'black'}}>
+              Recipes
+            </Typography>
+          </Link>
+        </Box>
+
+
 
       </Toolbar>
     </AppBar>
