@@ -30,16 +30,37 @@ function CocktailTable() {
       .then((data) => setCocktails(data));
   };
 
+  const fetchDataRandom = () => {
+    //const apiEndpoint = `https://api.example.com/data?query=${searchText}`;
+    const API = `http://localhost:3000/recipes?search=random`
+
+    axios.get(API)
+      .then((resp) => resp.data)
+      .catch(error => console.error('Error fetching data:', error))
+      .then((data) => setCocktails(data));
+  };
+
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter'&& searchText != '') {
+    if (event.key === 'Enter' && searchText != '') {
       fetchData();
       setCocktailDetails(null);
     }
   };
 
+  const onClickSearchButton = () => {
+    fetchData();
+    setCocktailDetails(null);
+  }
+
+  const onClickRandomButton = () => {
+    fetchDataRandom();
+    setCocktailDetails(null);
+  }
+
+
   return (
     <div onKeyDown={handleKeyDown}>
-      <Bar onSearchTextChange={setSearchText}/>
+      <Bar onSearchTextChange={setSearchText} onClickSearchButton={onClickSearchButton} onClickRandomButton={onClickRandomButton}/>
       {cocktails && <CocktailCard cocktailData={cocktails} onClick={setCocktailDetails}/>}
       {cocktailDetails && <CocktailDetails data={cocktailDetails}/>}
       {/* {cocktails && (
