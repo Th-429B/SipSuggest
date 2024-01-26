@@ -8,8 +8,10 @@ class RecipesController < ApplicationController
 
     if search_query == '' || search_query == 'All'
       @recipes = Recipe.includes(:ingredients, :steps).all
+    elsif search_query == 'Random'
+      @recipes = Array.wrap(Recipe.includes(:ingredients, :steps).order('RANDOM()').first)
     else 
-    ingredient = Ingredient.find_by(name: search_query)
+      ingredient = Ingredient.find_by(name: search_query)
       if ingredient
         @recipes = ingredient.recipes.includes(:ingredients, :steps)
         # render json: recipes.as_json(include: :ingredients)
