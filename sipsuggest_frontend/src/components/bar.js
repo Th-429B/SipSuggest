@@ -3,15 +3,17 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 
-function Bar( {onSearchTextChange} ) {
+function Bar( {onSearchTextChange, onClickSearchButton, onClickRandomButton} ) {
 
   return (
     <Box       
       sx={{
-        // width: '100%',
+        display:'flex', 
+        flexDirection:'column',
+        alignItems:'center'
       }}
     >
       <TextField id="outlined-basic" variant="outlined"        
@@ -31,6 +33,10 @@ function Bar( {onSearchTextChange} ) {
         }}
         helperText='Enter an ingredient name'
       />
+      <Box sx={{display:'flex', justifyContent:'space-around', gap:'16px'}}>
+        <Button variant='contained' sx={{background:'grey'}} onClick={onClickSearchButton}>Search</Button>
+        <Button variant='contained' sx={{background:'grey'}} onClick={onClickRandomButton}>I'm Feeling Lucky</Button>
+      </Box>
     </Box>
   );
 }
