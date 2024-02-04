@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, ListItem, ListItemText, Typography, List, ListItemIcon, Checkbox } from '@mui/material';
+import { Box, Button, ListItem, ListItemText, Typography, List, ListItemIcon, Checkbox, ListSubheader } from '@mui/material';
 import StarBorder from '@mui/icons-material/StarBorder';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
@@ -7,6 +7,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 function CocktailDetails(data) {
  
+  console.log(data)
   const onClick = (value) => {
     console.log(data.data.steps);
       
@@ -31,13 +32,22 @@ function CocktailDetails(data) {
     return (
         <ListItem 
           key={ingredient.id}
+          secondaryAction={
+            <Checkbox
+              edge='end'
+            />
+          }
         >
           <ListItemIcon>
             <ArrowRightIcon/>
           </ListItemIcon>
-            <ListItemText 
-              primary={ingredient.name}
-            />
+            {/* <ListItemText 
+              primary={ingredient.recipe_ingredients[0].quantity + ingredient.name}
+            /> */}
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+            <ListItemText primary={ingredient.name} />
+            <ListItemText primary={ingredient.recipe_ingredients[0].quantity} sx={{display: 'flex', justifyContent: 'flex-end'}}/>
+        </Box>
         </ListItem>
     )
   });
@@ -69,7 +79,14 @@ function CocktailDetails(data) {
       <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
         <Typography variant="h4">Ingredients:</Typography>    
-        <List aria-label="ingredients" sx={{ width: '100%', bgcolor: 'background.paper' }}>
+        <List aria-label="ingredients" sx={{ width: '100%', bgcolor: 'background.paper' }}  
+          subheader={
+            <ListSubheader component="div">
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingX: '25px'}}>
+                <Typography variant="subtitle1">Ingredients</Typography>
+                <Typography variant="subtitle1">Quantity</Typography>
+              </Box>
+            </ListSubheader>}>
           {listIngredients}
         </List>
 
