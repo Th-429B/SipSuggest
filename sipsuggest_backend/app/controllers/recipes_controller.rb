@@ -6,24 +6,34 @@ class RecipesController < ApplicationController
 
     search_query = params[:search].capitalize
 
-    if search_query == '' || search_query == 'All'
-      @recipes = Recipe.includes(:ingredients, :steps).all
+    # change to .blank?
+    if search_query.blank? || search_query == 'All'
+      @recipes = Recipe.includes(:ingredients, :recipe_ingredients, :steps).all
     elsif search_query == 'Random'
-      @recipes = Array.wrap(Recipe.includes(:ingredients, :steps).order('RANDOM()').first)
+      @recipes = Array.wrap(Recipe.includes(:ingredients, :recipe_ingredients, :steps).order('RANDOM()').first)
     else 
       ingredient = Ingredient.find_by(name: search_query)
       if ingredient
-        @recipes = ingredient.recipes.includes(:ingredients, :steps)
-        # render json: recipes.as_json(include: :ingredients)
+        @recipes = ingredient.recipes.includes(:ingredients, :recipe_ingredients, :steps)
       else
         return render json: { error: "Ingredient not found" }, status: :not_found
       end
-      # @recipes = Recipe.joins(:ingredients)
-      #                   .includes(:ingredients, :steps)
-      #                   .where(ingredients: {name: search_query})
-      #                   .distinct()
+
     end
-    render json: @recipes, include: [:ingredients, :steps]
+    # render json: @recipes, include: [:ingredients, :steps]
+    render json: @recipes.as_json(include: {
+      ingredients: {
+        include: {
+          recipe_ingredients: {
+            only: :quantity
+          }
+        },
+        only: [:id, :name]
+      },
+      steps: {
+        only: [:id, :instruction, :step_number]
+      }
+    })
   end
 
   # GET /recipes/1
