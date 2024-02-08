@@ -46,7 +46,7 @@ function CocktailDetails(data) {
             /> */}
             <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
             <ListItemText primary={ingredient.name} />
-            <ListItemText primary={ingredient.recipe_ingredients[0].quantity} sx={{display: 'flex', justifyContent: 'flex-end'}}/>
+            <ListItemText primary={ingredient.quantity} sx={{display: 'flex', justifyContent: 'flex-end'}}/>
         </Box>
         </ListItem>
     )

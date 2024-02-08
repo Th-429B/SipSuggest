@@ -4,15 +4,15 @@ class RecipesController < ApplicationController
   # GET /recipes
   def index
 
-    search_query = params[:search].capitalize
+    search_query = params[:search]
 
     # change to .blank?
-    if search_query.blank? || search_query == 'All'
+    if search_query.blank? || search_query.downcase == 'All'
       @recipes = Recipe.includes(:ingredients, :recipe_ingredients, :steps).all
-    elsif search_query == 'Random'
+    elsif search_query.downcase == 'random'
       @recipes = Array.wrap(Recipe.includes(:ingredients, :recipe_ingredients, :steps).order('RANDOM()').first)
     else 
-      ingredient = Ingredient.find_by(name: search_query)
+      ingredient = Ingredient.where('name ILIKE ?', "%#{search_query}%").first
       if ingredient
         @recipes = ingredient.recipes.includes(:ingredients, :recipe_ingredients, :steps)
       else
@@ -20,20 +20,25 @@ class RecipesController < ApplicationController
       end
 
     end
-    # render json: @recipes, include: [:ingredients, :steps]
-    render json: @recipes.as_json(include: {
-      ingredients: {
-        include: {
-          recipe_ingredients: {
-            only: :quantity
+
+    recipes_with_quantities = @recipes.map do |recipe|
+      {
+        **recipe.attributes, # Double splat operator which spreads the original hash into new hash
+        ingredients: recipe.ingredients.map do |ingredient|
+          recipe_ingredient = recipe.recipe_ingredients.find_by(ingredient_id: ingredient.id)
+          {
+            **ingredient.attributes,
+            quantity: recipe_ingredient&.quantity # If it exists
           }
-        },
-        only: [:id, :name]
-      },
-      steps: {
-        only: [:id, :instruction, :step_number]
+        end,
+        steps: recipe.steps.map do |step|
+          step.attributes 
+        end
       }
-    })
+    end
+  
+    render json: recipes_with_quantities
+    
   end
 
   # GET /recipes/1
