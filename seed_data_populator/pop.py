@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import string
 
 # url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=old-fasionedsda'
 # response = requests.get(url)
@@ -91,6 +92,7 @@ def writeRecipeIngredientsAndIngredients(file, ingredient_list, quantity_list, r
     for (ingredient, quantity) in zip(ingredient_list, quantity_list):
 
         ingredient_var_name = ingredient.strip().replace(' ', '_').lower()
+        ingredient = string.capwords(ingredient, sep=None)
         file.write(INGREDIENT_TEMPLATE.format(ingredient_var_name=ingredient_var_name, ingredient_name=ingredient))
 
         file.write(RECIPE_INGREDIENT_TEMPLATE.format(recipe_var_name=recipe_var_name, ingredient_var_name=ingredient_var_name, quantity=quantity))
@@ -101,7 +103,7 @@ def writeInstructions(file, instructions, recipe_var_name):
     instructions = instructions.replace('\r', '').replace('\n', '').split('.')[:-1]
 
     for (index, instruction) in enumerate(instructions, start=1):
-        print(instruction)
+        # print(instruction)
         file.write(STEP_TEMPLATE.format(recipe_var_name=recipe_var_name, number=index, instruction=instruction))
     file.write('\n')
 
@@ -113,6 +115,7 @@ with open(file_path, 'r') as file:
         json_data = json.loads(response.text)
 
         if (json_data['drinks'] is None):
+            print("Cocktail not found: " + name)
             continue
 
         # get the first drink. API will return multiple drinks if there are variations to the cocktail
@@ -134,7 +137,7 @@ with open(file_path, 'r') as file:
 
         writeInstructions(output, instructions=instrctions, recipe_var_name=name)
 
-    # throttle it so that its not recognize as a ddos attack
+        # throttle it so that its not recognize as a ddos attack
         print('---------------done with recipe {}--------------'.format(cocktail_name))
         count += 1
         time.sleep(2)
