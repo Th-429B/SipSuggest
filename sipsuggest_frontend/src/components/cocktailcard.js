@@ -18,14 +18,6 @@ function CocktailCard( {cocktailData, onClick, isDeleteToggled} ) {
   //   console.log(value)
   // }
 
-  const deleteRequest = () => {
-    
-  }
-
-  const onClickDeleteButton = () => {
-
-  }
-
   const listCards = cocktailData.map( cocktail => (
     <Card key={cocktail.id} sx={{ margin: 4, minWidth:350, minHeight: 350 }} >
       <CardActionArea onClick={() => onClick(cocktail)} component='div' sx={{height: '100%'}}>
@@ -33,7 +25,7 @@ function CocktailCard( {cocktailData, onClick, isDeleteToggled} ) {
             component="img"
             height="200"
             image={cocktail.img_link == "nil" ? image : cocktail.img_link}
-            alt="cocktail placeholder"
+            alt="Picture of cocktail"
         />
         <CardContent>
           <Typography variant="h5" component="div" >
