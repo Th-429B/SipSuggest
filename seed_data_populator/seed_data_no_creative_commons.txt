@@ -68,7 +68,7 @@ Step.create(recipe: margarita, step_number: 2, instruction: ' Take care to moist
 Step.create(recipe: margarita, step_number: 3, instruction: ' The salt should present to the lips of the imbiber and never mix into the cocktail')
 Step.create(recipe: margarita, step_number: 4, instruction: ' Shake the other ingredients with ice, then carefully pour into the glass')
 
-espresso_martini = Recipe.create(name: 'Espresso Martini', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/n0sx531504372951.jpg')
+espresso_martini = Recipe.create(name: 'Espresso Martini', description: 'Placeholder', img_link:'nil')
 
 vodka = Ingredient.find_or_create_by(name: 'Vodka')
 RecipeIngredient.create(recipe: espresso_martini, ingredient: vodka, quantity: '5 cl')
@@ -160,7 +160,7 @@ RecipeIngredient.create(recipe: bloody_mary, ingredient: lime, quantity: '1 wedg
 Step.create(recipe: bloody_mary, step_number: 1, instruction: 'Stirring gently, pour all ingredients into highball glass')
 Step.create(recipe: bloody_mary, step_number: 2, instruction: ' Garnish')
 
-gimlet = Recipe.create(name: 'Gimlet', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/3xgldt1513707271.jpg')
+gimlet = Recipe.create(name: 'Gimlet', description: 'Placeholder', img_link:'nil')
 
 gin = Ingredient.find_or_create_by(name: 'Gin')
 RecipeIngredient.create(recipe: gimlet, ingredient: gin, quantity: '2 1/2 oz')
@@ -189,7 +189,7 @@ Step.create(recipe: moscow_mule, step_number: 2, instruction: ' Add lime juice')
 Step.create(recipe: moscow_mule, step_number: 3, instruction: ' Stir gently')
 Step.create(recipe: moscow_mule, step_number: 4, instruction: ' Garnish')
 
-penicillin = Recipe.create(name: 'Penicillin', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/hc9b1a1521853096.jpg')
+penicillin = Recipe.create(name: 'Penicillin', description: 'Placeholder', img_link:'nil')
 
 blended_scotch = Ingredient.find_or_create_by(name: 'Blended Scotch')
 RecipeIngredient.create(recipe: penicillin, ingredient: blended_scotch, quantity: '2 oz')
@@ -207,7 +207,7 @@ Step.create(recipe: penicillin, step_number: 2, instruction: ' Strain over large
 Step.create(recipe: penicillin, step_number: 3, instruction: ' Float smoky Scotch on top (be sure to use a smoky Scotch such as an Islay single malt)')
 Step.create(recipe: penicillin, step_number: 4, instruction: ' Garnish with candied ginger')
 
-dark_and_stormy = Recipe.create(name: 'Dark and Stormy', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/t1tn0s1504374905.jpg')
+dark_and_stormy = Recipe.create(name: 'Dark and Stormy', description: 'Placeholder', img_link:'nil')
 
 dark_rum = Ingredient.find_or_create_by(name: 'Dark Rum')
 RecipeIngredient.create(recipe: dark_and_stormy, ingredient: dark_rum, quantity: '5 cl')
@@ -217,7 +217,7 @@ RecipeIngredient.create(recipe: dark_and_stormy, ingredient: ginger_beer, quanti
 Step.create(recipe: dark_and_stormy, step_number: 1, instruction: 'In a highball glass filled with ice add 6cl dark rum and top with ginger beer')
 Step.create(recipe: dark_and_stormy, step_number: 2, instruction: ' Garnish with lime wedge')
 
-corpse_reviver = Recipe.create(name: 'Corpse Reviver', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/gifgao1513704334.jpg')
+corpse_reviver = Recipe.create(name: 'Corpse Reviver', description: 'Placeholder', img_link:'nil')
 
 gin = Ingredient.find_or_create_by(name: 'Gin')
 RecipeIngredient.create(recipe: corpse_reviver, ingredient: gin, quantity: '3/4 oz')
@@ -231,7 +231,7 @@ absinthe = Ingredient.find_or_create_by(name: 'Absinthe')
 RecipeIngredient.create(recipe: corpse_reviver, ingredient: absinthe, quantity: '1 dash')
 
 
-clover_club = Recipe.create(name: 'Clover Club', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/t0aja61504348715.jpg')
+clover_club = Recipe.create(name: 'Clover Club', description: 'Placeholder', img_link:'nil')
 
 gin = Ingredient.find_or_create_by(name: 'Gin')
 RecipeIngredient.create(recipe: clover_club, ingredient: gin, quantity: '1 1/2 oz ')
@@ -244,7 +244,7 @@ RecipeIngredient.create(recipe: clover_club, ingredient: egg_white, quantity: '1
 
 Step.create(recipe: clover_club, step_number: 1, instruction: 'Dry shake ingredients to emulsify, add ice, shake and served straight up')
 
-boulevardier = Recipe.create(name: 'Boulevardier', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/km84qi1513705868.jpg')
+boulevardier = Recipe.create(name: 'Boulevardier', description: 'Placeholder', img_link:'nil')
 
 campari = Ingredient.find_or_create_by(name: 'Campari')
 RecipeIngredient.create(recipe: boulevardier, ingredient: campari, quantity: '1 oz')
@@ -274,7 +274,7 @@ Step.create(recipe: mai_tai, step_number: 1, instruction: 'Shake all ingredients
 Step.create(recipe: mai_tai, step_number: 2, instruction: ' Strain into glass')
 Step.create(recipe: mai_tai, step_number: 3, instruction: ' Garnish and serve with straw')
 
-sazerac = Recipe.create(name: 'Sazerac', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/vvpxwy1439907208.jpg')
+sazerac = Recipe.create(name: 'Sazerac', description: 'Placeholder', img_link:'nil')
 
 ricard = Ingredient.find_or_create_by(name: 'Ricard')
 RecipeIngredient.create(recipe: sazerac, ingredient: ricard, quantity: '1 tsp ')
@@ -314,7 +314,7 @@ Step.create(recipe: french_75, step_number: 2, instruction: ' Shake vigorously a
 Step.create(recipe: french_75, step_number: 3, instruction: ' Top up with Champagne')
 Step.create(recipe: french_75, step_number: 4, instruction: ' Stir gently')
 
-paloma = Recipe.create(name: 'Paloma', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/samm5j1513706393.jpg')
+paloma = Recipe.create(name: 'Paloma', description: 'Placeholder', img_link:'nil')
 
 grape_soda = Ingredient.find_or_create_by(name: 'Grape Soda')
 RecipeIngredient.create(recipe: paloma, ingredient: grape_soda, quantity: '3 oz')
@@ -323,7 +323,7 @@ RecipeIngredient.create(recipe: paloma, ingredient: tequila, quantity: '1 1/2 oz
 
 Step.create(recipe: paloma, step_number: 1, instruction: 'Stir together and serve over ice')
 
-pisco_sour = Recipe.create(name: 'Pisco Sour', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/tsssur1439907622.jpg')
+pisco_sour = Recipe.create(name: 'Pisco Sour', description: 'Placeholder', img_link:'nil')
 
 pisco = Ingredient.find_or_create_by(name: 'Pisco')
 RecipeIngredient.create(recipe: pisco_sour, ingredient: pisco, quantity: '2 oz ')
@@ -351,7 +351,7 @@ RecipeIngredient.create(recipe: americano, ingredient: orange_peel, quantity: 'T
 
 Step.create(recipe: americano, step_number: 1, instruction: 'Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice')
 
-amaretto_sour = Recipe.create(name: 'Amaretto Sour', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/xnzc541493070211.jpg')
+amaretto_sour = Recipe.create(name: 'Amaretto Sour', description: 'Placeholder', img_link:'nil')
 
 amaretto = Ingredient.find_or_create_by(name: 'Amaretto')
 RecipeIngredient.create(recipe: amaretto_sour, ingredient: amaretto, quantity: '1 1/2 oz ')
@@ -392,7 +392,7 @@ Step.create(recipe: bramble, step_number: 2, instruction: ' Build gin, lemon jui
 Step.create(recipe: bramble, step_number: 3, instruction: ' Stir, and then pour blackberry liqueur over in a circular fashion to create marbling effect')
 Step.create(recipe: bramble, step_number: 4, instruction: ' Garnish with two blackberries and lemon slice')
 
-bellini = Recipe.create(name: 'Bellini', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/eaag491504367543.jpg')
+bellini = Recipe.create(name: 'Bellini', description: 'Placeholder', img_link:'nil')
 
 champagne = Ingredient.find_or_create_by(name: 'Champagne')
 RecipeIngredient.create(recipe: bellini, ingredient: champagne, quantity: '6 oz ')
@@ -414,7 +414,7 @@ RecipeIngredient.create(recipe: pina_colada, ingredient: pineapple, quantity: '3
 Step.create(recipe: pina_colada, step_number: 1, instruction: 'Mix with crushed ice in blender until smooth')
 Step.create(recipe: pina_colada, step_number: 2, instruction: ' Pour into chilled glass, garnish and serve')
 
-orgasm = Recipe.create(name: 'Orgasm', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/vr6kle1504886114.jpg')
+orgasm = Recipe.create(name: 'Orgasm', description: 'Placeholder', img_link:'nil')
 
 creme_de_cacao = Ingredient.find_or_create_by(name: 'Creme De Cacao')
 RecipeIngredient.create(recipe: orgasm, ingredient: creme_de_cacao, quantity: '1/2 oz white ')
@@ -454,7 +454,7 @@ Step.create(recipe: aviation, step_number: 1, instruction: 'Add all ingredients 
 Step.create(recipe: aviation, step_number: 2, instruction: ' Shake well and strain into cocktail glass')
 Step.create(recipe: aviation, step_number: 3, instruction: ' Garnish with a cherry')
 
-irish_coffee = Recipe.create(name: 'Irish Coffee', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/sywsqw1439906999.jpg')
+irish_coffee = Recipe.create(name: 'Irish Coffee', description: 'Placeholder', img_link:'nil')
 
 irish_whiskey = Ingredient.find_or_create_by(name: 'Irish Whiskey')
 RecipeIngredient.create(recipe: irish_coffee, ingredient: irish_whiskey, quantity: '1 1/2 oz ')
@@ -489,7 +489,7 @@ Step.create(recipe: tom_collins, step_number: 3, instruction: ' Strain into a co
 Step.create(recipe: tom_collins, step_number: 4, instruction: ' Add the club soda')
 Step.create(recipe: tom_collins, step_number: 5, instruction: ' Stir and garnish with the cherry and the orange slice')
 
-vodka_martini = Recipe.create(name: 'Vodka Martini', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/qyxrqw1439906528.jpg')
+vodka_martini = Recipe.create(name: 'Vodka Martini', description: 'Placeholder', img_link:'nil')
 
 vodka = Ingredient.find_or_create_by(name: 'Vodka')
 RecipeIngredient.create(recipe: vodka_martini, ingredient: vodka, quantity: '1 1/2 oz ')
@@ -500,7 +500,7 @@ RecipeIngredient.create(recipe: vodka_martini, ingredient: olive, quantity: '1 '
 
 Step.create(recipe: vodka_martini, step_number: 1, instruction: 'Shake the vodka and vermouth together with a number of ice cubes, strain into a cocktail glass, add the olive and serve')
 
-zombie = Recipe.create(name: 'Zombie', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/2en3jk1509557725.jpg')
+zombie = Recipe.create(name: 'Zombie', description: 'Placeholder', img_link:'nil')
 
 rum = Ingredient.find_or_create_by(name: 'Rum')
 RecipeIngredient.create(recipe: zombie, ingredient: rum, quantity: '1 1/2 oz')
@@ -523,7 +523,7 @@ Step.create(recipe: zombie, step_number: 3, instruction: '*Donn’s mix: Bring 3
 Step.create(recipe: zombie, step_number: 4, instruction: 'Simmer for 2 minutes, then remove from the heat and let sit for at least 2 hours before straining into a clean glass bottle')
 Step.create(recipe: zombie, step_number: 5, instruction: 'Then add 1 part of the syrup and 2 parts of fresh grapefruit juice together')
 
-cosmopolitan = Recipe.create(name: 'Cosmopolitan', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/kpsajh1504368362.jpg')
+cosmopolitan = Recipe.create(name: 'Cosmopolitan', description: 'Placeholder', img_link:'nil')
 
 vodka = Ingredient.find_or_create_by(name: 'Vodka')
 RecipeIngredient.create(recipe: cosmopolitan, ingredient: vodka, quantity: '1 1/4 oz ')
@@ -538,7 +538,7 @@ Step.create(recipe: cosmopolitan, step_number: 1, instruction: 'Add all ingredie
 Step.create(recipe: cosmopolitan, step_number: 2, instruction: ' Shake well and double strain into large cocktail glass')
 Step.create(recipe: cosmopolitan, step_number: 3, instruction: ' Garnish with lime wheel')
 
-white_lady = Recipe.create(name: 'White Lady', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/jofsaz1504352991.jpg')
+white_lady = Recipe.create(name: 'White Lady', description: 'Placeholder', img_link:'nil')
 
 gin = Ingredient.find_or_create_by(name: 'Gin')
 RecipeIngredient.create(recipe: white_lady, ingredient: gin, quantity: '4cl')
@@ -550,7 +550,7 @@ RecipeIngredient.create(recipe: white_lady, ingredient: lemon_juice, quantity: '
 Step.create(recipe: white_lady, step_number: 1, instruction: 'Add all ingredients into cocktail shaker filled with ice')
 Step.create(recipe: white_lady, step_number: 2, instruction: ' Shake well and strain into large cocktail glass')
 
-long_island_iced_tea = Recipe.create(name: 'Long Island Iced Tea', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/wx7hsg1504370510.jpg')
+long_island_iced_tea = Recipe.create(name: 'Long Island Iced Tea', description: 'Placeholder', img_link:'nil')
 
 vodka = Ingredient.find_or_create_by(name: 'Vodka')
 RecipeIngredient.create(recipe: long_island_iced_tea, ingredient: vodka, quantity: '1/2 oz ')
@@ -588,7 +588,7 @@ Step.create(recipe: singapore_sling, step_number: 2, instruction: ' Shake well')
 Step.create(recipe: singapore_sling, step_number: 3, instruction: ' Strain into highball glass')
 Step.create(recipe: singapore_sling, step_number: 4, instruction: ' Garnish with pineapple and cocktail cherry')
 
-mint_julep = Recipe.create(name: 'Mint Julep', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/squyyq1439907312.jpg')
+mint_julep = Recipe.create(name: 'Mint Julep', description: 'Placeholder', img_link:'nil')
 
 mint = Ingredient.find_or_create_by(name: 'Mint')
 RecipeIngredient.create(recipe: mint_julep, ingredient: mint, quantity: '4 fresh ')
@@ -603,7 +603,7 @@ Step.create(recipe: mint_julep, step_number: 1, instruction: 'In a highball glas
 Step.create(recipe: mint_julep, step_number: 2, instruction: ' Fill the glass with cracked ice, add Bourbon and stir well until the glass is well frosted')
 Step.create(recipe: mint_julep, step_number: 3, instruction: ' Garnish with a mint sprig')
 
-tequila_sunrise = Recipe.create(name: 'Tequila Sunrise', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/quqyqp1480879103.jpg')
+tequila_sunrise = Recipe.create(name: 'Tequila Sunrise', description: 'Placeholder', img_link:'nil')
 
 tequila = Ingredient.find_or_create_by(name: 'Tequila')
 RecipeIngredient.create(recipe: tequila_sunrise, ingredient: tequila, quantity: '2 measures ')
@@ -617,7 +617,7 @@ Step.create(recipe: tequila_sunrise, step_number: 2, instruction: ' Add the gren
 Step.create(recipe: tequila_sunrise, step_number: 3, instruction: ' Stir gently to create the sunrise effect')
 Step.create(recipe: tequila_sunrise, step_number: 4, instruction: ' Garnish and serve')
 
-gin_basil_smash = Recipe.create(name: 'Gin Basil Smash', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/jqh2141572807327.jpg')
+gin_basil_smash = Recipe.create(name: 'Gin Basil Smash', description: 'Placeholder', img_link:'nil')
 
 gin = Ingredient.find_or_create_by(name: 'Gin')
 RecipeIngredient.create(recipe: gin_basil_smash, ingredient: gin, quantity: '6 cl')
@@ -631,7 +631,7 @@ RecipeIngredient.create(recipe: gin_basil_smash, ingredient: basil, quantity: 'W
 Step.create(recipe: gin_basil_smash, step_number: 1, instruction: 'Muddle Basil leaves (~ 10) with Suggar Syrup in a shaker')
 Step.create(recipe: gin_basil_smash, step_number: 2, instruction: ' Add Gin an Lemon Juice')
 
-the_last_word = Recipe.create(name: 'The Last Word', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/91oule1513702624.jpg')
+the_last_word = Recipe.create(name: 'The Last Word', description: 'Placeholder', img_link:'nil')
 
 green_chartreuse = Ingredient.find_or_create_by(name: 'Green Chartreuse')
 RecipeIngredient.create(recipe: the_last_word, ingredient: green_chartreuse, quantity: '1 oz')
@@ -644,7 +644,7 @@ RecipeIngredient.create(recipe: the_last_word, ingredient: gin, quantity: '1 oz'
 
 Step.create(recipe: the_last_word, step_number: 1, instruction: 'Shake with ice and strain into a cocktail glass')
 
-tommy_margarita = Recipe.create(name: "Tommy's Margarita", description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/loezxn1504373874.jpg')
+tommy_margarita = Recipe.create(name: "Tommy's Margarita", description: 'Placeholder', img_link:'nil')
 
 tequila = Ingredient.find_or_create_by(name: 'Tequila')
 RecipeIngredient.create(recipe: tommy_margarita, ingredient: tequila, quantity: '4.5 cl')
@@ -679,7 +679,7 @@ RecipeIngredient.create(recipe: alabama_slammer, ingredient: lemon_juice, quanti
 Step.create(recipe: alabama_slammer, step_number: 1, instruction: 'Pour all ingredients (except for lemon juice) over ice in a highball glass')
 Step.create(recipe: alabama_slammer, step_number: 2, instruction: ' Stir, add a dash of lemon juice, and serve')
 
-bahama_mama = Recipe.create(name: 'Bahama Mama', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/tyb4a41515793339.jpg')
+bahama_mama = Recipe.create(name: 'Bahama Mama', description: 'Placeholder', img_link:'nil')
 
 rum = Ingredient.find_or_create_by(name: 'Rum')
 RecipeIngredient.create(recipe: bahama_mama, ingredient: rum, quantity: '3 parts')

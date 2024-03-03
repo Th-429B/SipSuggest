@@ -93,7 +93,7 @@ RecipeIngredient.create(recipe: whiskey_sour, ingredient: lemon, quantity: '1/2 
 
 Step.create(recipe: whiskey_sour, step_number: 1, instruction: 'Shake with ice')
 Step.create(recipe: whiskey_sour, step_number: 2, instruction: ' Strain into chilled glass, garnish and serve')
-Step.create(recipe: whiskey_sour, step_number: 3, instruction: ' If served On the rocks, strain ingredients into old-fashioned glass filled with ice')
+Step.create(recipe: whiskey_sour, step_number: 3, instruction: ' If served 'On the rocks', strain ingredients into old-fashioned glass filled with ice')
 
 manhattan = Recipe.create(name: 'Manhattan', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/yk70e31606771240.jpg')
 
@@ -506,8 +506,8 @@ rum = Ingredient.find_or_create_by(name: 'Rum')
 RecipeIngredient.create(recipe: zombie, ingredient: rum, quantity: '1 1/2 oz')
 gold_rum = Ingredient.find_or_create_by(name: 'Gold Rum')
 RecipeIngredient.create(recipe: zombie, ingredient: gold_rum, quantity: '1 1/2 oz')
-proof_rum = Ingredient.find_or_create_by(name: '151 Proof Rum')
-RecipeIngredient.create(recipe: zombie, ingredient: proof_rum, quantity: '1 oz')
+151_proof_rum = Ingredient.find_or_create_by(name: '151 Proof Rum')
+RecipeIngredient.create(recipe: zombie, ingredient: 151_proof_rum, quantity: '1 oz')
 pernod = Ingredient.find_or_create_by(name: 'Pernod')
 RecipeIngredient.create(recipe: zombie, ingredient: pernod, quantity: '1 tsp')
 grenadine = Ingredient.find_or_create_by(name: 'Grenadine')
@@ -560,8 +560,8 @@ light_rum = Ingredient.find_or_create_by(name: 'Light Rum')
 RecipeIngredient.create(recipe: long_island_iced_tea, ingredient: light_rum, quantity: '1/2 oz ')
 gin = Ingredient.find_or_create_by(name: 'Gin')
 RecipeIngredient.create(recipe: long_island_iced_tea, ingredient: gin, quantity: '1/2 oz ')
-cola = Ingredient.find_or_create_by(name: 'Cola')
-RecipeIngredient.create(recipe: long_island_iced_tea, ingredient: cola, quantity: '1 dash ')
+coca-cola = Ingredient.find_or_create_by(name: 'Coca-cola')
+RecipeIngredient.create(recipe: long_island_iced_tea, ingredient: coca-cola, quantity: '1 dash ')
 lemon_peel = Ingredient.find_or_create_by(name: 'Lemon Peel')
 RecipeIngredient.create(recipe: long_island_iced_tea, ingredient: lemon_peel, quantity: 'Twist of ')
 
@@ -644,16 +644,16 @@ RecipeIngredient.create(recipe: the_last_word, ingredient: gin, quantity: '1 oz'
 
 Step.create(recipe: the_last_word, step_number: 1, instruction: 'Shake with ice and strain into a cocktail glass')
 
-tommy_margarita = Recipe.create(name: "Tommy's Margarita", description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/loezxn1504373874.jpg')
+tommy's_margarita = Recipe.create(name: 'Tommy's Margarita', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/loezxn1504373874.jpg')
 
 tequila = Ingredient.find_or_create_by(name: 'Tequila')
-RecipeIngredient.create(recipe: tommy_margarita, ingredient: tequila, quantity: '4.5 cl')
+RecipeIngredient.create(recipe: tommy's_margarita, ingredient: tequila, quantity: '4.5 cl')
 lime_juice = Ingredient.find_or_create_by(name: 'Lime Juice')
-RecipeIngredient.create(recipe: tommy_margarita, ingredient: lime_juice, quantity: '1.5 cl')
+RecipeIngredient.create(recipe: tommy's_margarita, ingredient: lime_juice, quantity: '1.5 cl')
 agave_syrup = Ingredient.find_or_create_by(name: 'Agave Syrup')
-RecipeIngredient.create(recipe: tommy_margarita, ingredient: agave_syrup, quantity: '2 spoons')
+RecipeIngredient.create(recipe: tommy's_margarita, ingredient: agave_syrup, quantity: '2 spoons')
 
-Step.create(recipe: tommy_margarita, step_number: 1, instruction: 'Shake and strain into a chilled cocktail glass')
+Step.create(recipe: tommy's_margarita, step_number: 1, instruction: 'Shake and strain into a chilled cocktail glass')
 
 godfather = Recipe.create(name: 'Godfather', description: 'Placeholder', img_link:'https://www.thecocktaildb.com/images/media/drink/e5zgao1582582378.jpg')
 
