@@ -124,10 +124,11 @@ with open(file_path, 'r') as file:
         # extract variables
         drink_name = data['strDrink']
         instrctions = data['strInstructions']
-        if data['strCreativeCommonsConfirmed'] == 'Yes':
-            img_link = data['strDrinkThumb']
-        else:
-            img_link = 'nil' 
+        img_link = data['strDrinkThumb']
+        # if data['strCreativeCommonsConfirmed'] == 'Yes':
+        #     img_link = data['strDrinkThumb']
+        # else:
+        #     img_link = 'nil' 
         
         ingredients, quantity = extractIngredientsAndQuantity(data)
 
