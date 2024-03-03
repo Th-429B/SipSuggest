@@ -3,43 +3,44 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   def index
+  search_query = params[:search]
 
-    search_query = params[:search]
-
-    # change to .blank?
-    if search_query.blank? || search_query.downcase == 'All'
-      @recipes = Recipe.includes(:ingredients, :recipe_ingredients, :steps).all
-    elsif search_query.downcase == 'random'
-      @recipes = Array.wrap(Recipe.includes(:ingredients, :recipe_ingredients, :steps).order('RANDOM()').first)
-    else 
-      ingredient = Ingredient.where('name ILIKE ?', "%#{search_query}%").first
-      if ingredient
-        @recipes = ingredient.recipes.includes(:ingredients, :recipe_ingredients, :steps)
-      else
-        return render json: { error: "Ingredient not found" }, status: :not_found
-      end
-
+  # Handle blank or 'all' search queries
+  if search_query.blank? || search_query.downcase == 'all'
+    @recipes = Recipe.includes(:ingredients, :recipe_ingredients, :steps).all
+  elsif search_query.downcase == 'random'
+    # Get a random recipe
+    @recipes = Array.wrap(Recipe.includes(:ingredients, :recipe_ingredients, :steps).order('RANDOM()').first)
+  else 
+    # Search for ingredients that partially match the query
+    ingredients = Ingredient.where('ingredients.name ILIKE ?', "%#{search_query}%")
+    if ingredients.exists?
+      recipe_ids = ingredients.joins(:recipes).distinct.pluck('recipes.id')
+      @recipes = Recipe.includes(:ingredients, :recipe_ingredients, :steps).where(id: recipe_ids)
+    else
+      # Return an error if no ingredients are found
+      return render json: { error: "Ingredient not found" }, status: :not_found
     end
-
-    recipes_with_quantities = @recipes.map do |recipe|
-      {
-        **recipe.attributes, # Double splat operator which spreads the original hash into new hash
-        ingredients: recipe.ingredients.map do |ingredient|
-          recipe_ingredient = recipe.recipe_ingredients.find_by(ingredient_id: ingredient.id)
-          {
-            **ingredient.attributes,
-            quantity: recipe_ingredient&.quantity # If it exists
-          }
-        end,
-        steps: recipe.steps.map do |step|
-          step.attributes 
-        end
-      }
-    end
-  
-    render json: recipes_with_quantities
-    
   end
+
+  # Build a detailed JSON response with recipes, ingredients (including quantities), and steps
+  recipes_with_quantities = @recipes.map do |recipe|
+    {
+      **recipe.attributes,
+      ingredients: recipe.ingredients.map do |ingredient|
+        recipe_ingredient = recipe.recipe_ingredients.find_by(ingredient_id: ingredient.id)
+        {
+          **ingredient.attributes,
+          quantity: recipe_ingredient&.quantity # Safely access quantity
+        }
+      end,
+      steps: recipe.steps.map(&:attributes)
+    }
+  end
+
+  render json: recipes_with_quantities
+end
+
 
   # GET /recipes/1
   def show
